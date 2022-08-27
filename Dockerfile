@@ -1,7 +1,6 @@
-FROM python:3.8 
+FROM python:latest
+RUN mkdir /app
+ADD deploy/ /app
 WORKDIR /app
-COPY . /app
-RUN pip install -r requirements.txt 
-EXPOSE 5000
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]

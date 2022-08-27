@@ -18,8 +18,8 @@ pipeline{
     stage('Push image to artifactory'){
         steps{
             script{
-                withCredentials([usernamePassword(credentialsId: 'artifactory-48ac-user', passwordVariable: 'passwd', usernameVariable: 'admin')]) {
-                 sh 'docker login https://r-48ac-seg-docker-local.artifactory.2b82.aws.cloud.airbus.corp/ -u admin -p ${artifactory-48ac-user} '
+                 withCredentials([string(credentialsId: 'artifactory-credentials', variable: 'artifactory-credentials')]) {
+                 sh 'docker login https://r-48ac-seg-docker-local.artifactory.2b82.aws.cloud.airbus.corp/ -u admin -p ${artifactory-credentials} '
                     }
                  
                  sh 'docker push r-48ac-seg-docker-local.artifactory.2b82.aws.cloud.airbus.corp/rajat-test:latest'
