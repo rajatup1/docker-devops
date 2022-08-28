@@ -10,7 +10,7 @@ pipeline{
     stage("Build and tag Docker image"){
         steps {
           script{
-            sh "docker image build  . --tag r-48ac-seg-docker-local.artifactory.2b82.aws.cloud.airbus.corp/rajat-test:latest"
+            sh 'docker image build  . --tag r-48ac-seg-docker-local.artifactory.2b82.aws.cloud.airbus.corp/rajat-test:latest'
            }
          }
        }
