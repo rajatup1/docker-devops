@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    
+    stages {
+
     stage('Git clone'){
         
         steps{
@@ -7,7 +10,7 @@ pipeline{
           }
         }
         
-    stage("Build and tag Docker image"){
+    stage('Build and tag Docker image'){
         steps {
           script{
             sh 'docker image build  . --tag r-48ac-seg-docker-local.artifactory.2b82.aws.cloud.airbus.corp/rajat-test:latest'
@@ -26,6 +29,6 @@ pipeline{
             }
         }
     }
-    
+}    
     
 }
